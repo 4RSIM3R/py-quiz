@@ -15,9 +15,11 @@ return new class extends Migration
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Module::class)->constrained();
+            $table->string('module_name');
             $table->string('name');
             $table->string('desc');
-            $table->integer('order')->default(0);
+            $table->string('code');
+            $table->string('test');
             $table->baseFields();
         });
     }

@@ -37,6 +37,9 @@ class CourseController extends Controller
     public function store(CourseRequest $request)
     {
         $payload = $request->validated();
+
+        unset($payload["material"]);
+
         $data = $this->service->create($payload);
         return WebResponse::response($data, 'backoffice.master.course.index');
     }

@@ -11,6 +11,7 @@ class CourseService extends BaseService implements CourseContract
 {
     protected Model $model;
     protected array $relation = [];
+    protected array $fileKeys = ['material']; 
 
     /**
      * Repositories constructor.

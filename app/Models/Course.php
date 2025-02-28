@@ -13,4 +13,14 @@ class Course extends Model implements HasMedia
     use HasFactory, InteractsWithMedia;
 
     protected $guarded = [];
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('material');
+    }
+
+    public function getMaterialAttribute(): string|null
+    {
+        return $this->getFirstMediaUrl('material');
+    }
 }

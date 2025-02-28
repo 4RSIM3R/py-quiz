@@ -24,7 +24,11 @@ class CourseRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'desc' => ['required', 'string', 'max:255'],
-            'order' => ['required', 'integer', 'min:1'],
+            'code' => ['required', 'string'],
+            'test' => ['required', 'string'],
+            'material' => ['required', 'file'],
+            'module_id' => ['required', 'integer', 'exists:modules,id'],
+            'module_name' => ['required', 'string'],
         ];
     }
 }
