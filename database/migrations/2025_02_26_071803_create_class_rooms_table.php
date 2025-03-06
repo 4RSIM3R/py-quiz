@@ -15,8 +15,10 @@ return new class extends Migration
         Schema::create('class_rooms', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Teacher::class)->constrained();
+            $table->string('teacher_name');
             $table->string('name');
             $table->string('grade');
+            $table->string('code');
             $table->baseFields();
         });
     }

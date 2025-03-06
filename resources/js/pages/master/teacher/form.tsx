@@ -30,7 +30,7 @@ export default function TeacherForm({ payload }: TeacherFormProps) {
                     <p className="text-sm text-gray-600">Master Data Teacher</p>
                 </div>
                 <div className="flex gap-4">
-                    <Button appearance="outline">
+                    <Button intent="outline">
                         <IconCircleQuestionmark />
                     </Button>
                 </div>

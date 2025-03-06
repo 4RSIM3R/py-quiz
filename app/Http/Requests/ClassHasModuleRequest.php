@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ClassRoomRequest extends FormRequest
+class ClassHasModuleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,11 +22,8 @@ class ClassRoomRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'max:255'],
-            'grade' => ['required', 'string', 'max:255'],
-            'teacher_id' => ['required', 'integer', 'exists:teachers,id'],
-            'teacher_name' => ['required', 'string', 'max:255'],
-            'code' => ['required', 'string']
+            'class_room_id' => ['required', 'integer', 'exists:class_rooms,id'],
+            'module_id' => ['required', 'integer', 'exists:modules,id'],
         ];
     }
 }

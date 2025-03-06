@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Master;
 
 use App\Contract\Master\ClassRoomContract;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ClassHasModuleRequest;
+use App\Http\Requests\ClassHasStudentRequest;
 use App\Http\Requests\ClassRoomRequest;
 use App\Utils\WebResponse;
 use Inertia\Inertia;
@@ -57,6 +59,42 @@ class ClassRoomController extends Controller
     public function destroy($id)
     {
         $data = $this->service->destroy($id);
+        return WebResponse::response($data, 'backoffice.master.class.index');
+    }
+
+    public function fetchStudent()
+    {
+        $data = $this->service->getStudent(
+            filters: ['class_room_id'],
+            sorts: [],
+            paginate: true,
+            relation: ['student']
+        );
+        return response()->json($data);
+    }
+
+    public function storeStudent(ClassHasStudentRequest $request)
+    {
+        $payload = $request->validated();
+        $data = $this->service->storeStudent($payload);
+        return WebResponse::response($data, 'backoffice.master.class.index');
+    }
+
+    public function fetchModule()
+    {
+        $data = $this->service->getModule(
+            filters: ['class_room_id'],
+            sorts: [],
+            paginate: true,
+            relation: ['module']
+        );
+        return response()->json($data);
+    }
+
+    public function storeModule(ClassHasModuleRequest $request)
+    {
+        $payload = $request->validated();
+        $data = $this->service->storeModule($payload);
         return WebResponse::response($data, 'backoffice.master.class.index');
     }
 }

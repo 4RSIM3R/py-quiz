@@ -1,3 +1,5 @@
+"use client"
+
 import { cn } from "@/utils/classes"
 import { IconChevronLgDown } from "justd-icons"
 import type {
@@ -92,7 +94,7 @@ const SelectList = <T extends object>({
       className={cn("sm:min-w-(--trigger-width)", popoverClassName)}
       placement={props.placement}
     >
-      <ListBox className={cn("border-0", className)} items={items} {...props}>
+      <ListBox className={cn("border-0 shadow-none", className)} items={items} {...props}>
         {children}
       </ListBox>
     </PopoverContent>
@@ -115,7 +117,10 @@ const SelectTrigger = ({ className, ...props }: SelectTriggerProps) => {
       )}
     >
       {props.prefix && <span className="-mr-1">{props.prefix}</span>}
-      <SelectValue className="*:data-[slot=icon]:-mx-0.5 *:data-[slot=avatar]:-mx-0.5 *:data-[slot=avatar]:*:-mx-0.5 grid flex-1 grid-cols-[auto_1fr] items-center text-base data-placeholder:text-muted-fg *:data-[slot=avatar]:*:mr-2 *:data-[slot=avatar]:mr-2 *:data-[slot=icon]:mr-2 sm:text-sm [&_[slot=description]]:hidden" />
+      <SelectValue
+        data-slot="select-value"
+        className="*:data-[slot=icon]:-mx-0.5 *:data-[slot=avatar]:-mx-0.5 *:data-[slot=avatar]:*:-mx-0.5 grid flex-1 grid-cols-[auto_1fr] items-center text-base data-placeholder:text-muted-fg *:data-[slot=avatar]:*:mr-2 *:data-[slot=avatar]:mr-2 *:data-[slot=icon]:mr-2 sm:text-sm [&_[slot=description]]:hidden"
+      />
       <IconChevronLgDown
         aria-hidden
         className="size-4 shrink-0 text-muted-fg duration-300 group-data-open:rotate-180 group-data-open:text-fg group-data-disabled:opacity-50 forced-colors:text-[ButtonText] forced-colors:group-data-disabled:text-[GrayText]"
@@ -138,5 +143,5 @@ Select.Section = SelectSection
 Select.Trigger = SelectTrigger
 Select.List = SelectList
 
-export { Select }
 export type { SelectProps, SelectTriggerProps }
+export { Select }

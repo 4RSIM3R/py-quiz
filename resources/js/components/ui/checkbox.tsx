@@ -1,3 +1,5 @@
+"use client"
+
 import { IconCheck, IconMinus } from "justd-icons"
 import type {
   CheckboxGroupProps as CheckboxGroupPrimitiveProps,
@@ -108,5 +110,5 @@ const Checkbox = ({ className, ...props }: CheckboxProps) => {
   )
 }
 
-export { Checkbox, CheckboxGroup }
 export type { CheckboxGroupProps, CheckboxProps }
+export { Checkbox, CheckboxGroup }

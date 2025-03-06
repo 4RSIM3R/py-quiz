@@ -10,16 +10,11 @@ type StudentFormProps = {
 
 export default function StudentForm({ payload }: StudentFormProps) {
 
-    const { data, setData, errors, processing, post, put } = useForm<any>(payload);
+    const { data, setData, errors, processing, post } = useForm<any>(payload);
 
     const onSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-
-        if (payload) {
-            put(route("backoffice.master.teacher.update", data.id), FormResponse);
-        } else {
-            post(route("backoffice.master.teacher.store"), FormResponse);
-        }
+        post(route("backoffice.master.student.store"), FormResponse);
     };
 
     return (
@@ -30,7 +25,7 @@ export default function StudentForm({ payload }: StudentFormProps) {
                     <p className="text-sm text-gray-600">Master Data Student</p>
                 </div>
                 <div className="flex gap-4">
-                    <Button appearance="outline">
+                    <Button intent="outline">
                         <IconCircleQuestionmark />
                     </Button>
                 </div>
@@ -87,7 +82,7 @@ export default function StudentForm({ payload }: StudentFormProps) {
                     type="password"
                     isRevealable={true}
                 />
-                <div className="col-span-6 my-3">
+                <div className="col-span-12">
                     <Button isDisabled={processing} type="submit">
                         {processing ? "Processing..." : "Submit"}
                     </Button>

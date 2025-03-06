@@ -1,3 +1,5 @@
+"use client"
+
 import {
   TextArea as TextAreaPrimitive,
   TextField as TextFieldPrimitive,

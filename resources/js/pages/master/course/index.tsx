@@ -45,7 +45,7 @@ export default function CourseIndex() {
             id: 'file',
             header: 'File',
             cell: (item) => (
-                <Button size="extra-small" appearance="outline" >Download</Button>
+                <Button size="extra-small" intent="outline" >Download</Button>
             ),
             sortable: false
         },

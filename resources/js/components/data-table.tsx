@@ -151,7 +151,7 @@ export const DataTable = <T extends Record<string, any>>({
             <Pagination className="my-3" >
                 <Pagination.List>
                     <Pagination.Item isDisabled={!data.prev_page || loading} segment="previous" onAction={() => handlePageChange(currentPage - 1)} />
-                    <Pagination.Item appearance="outline">
+                    <Pagination.Item intent="outline">
                         Page {currentPage}
                     </Pagination.Item>
                     <Pagination.Item isDisabled={!data.next_page || loading} segment="next" onAction={() => handlePageChange(currentPage + 1)} />

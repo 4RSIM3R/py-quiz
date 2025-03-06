@@ -71,7 +71,8 @@ class BaseService implements BaseContract
             if (is_null($paginate)) $paginate = config('service-contract.default_paginated');
             if (!$paginate) return $model->get();
 
-            $result = $model->paginate(config('service-contract.pagination_per_page'))
+            $result = $model
+                ->paginate(config('service-contract.pagination_per_page'))
                 ->appends(request()->query());
 
             return [
@@ -222,8 +223,8 @@ class BaseService implements BaseContract
                 })
                 ->latest();
 
-                if (is_null($paginate)) $paginate = config('service-contract.default_paginated');
-                if (!$paginate) return $model->get();
+            if (is_null($paginate)) $paginate = config('service-contract.default_paginated');
+            if (!$paginate) return $model->get();
 
             $result = $model->paginate(config('service-contract.pagination_per_page'))
                 ->appends(request()->query());

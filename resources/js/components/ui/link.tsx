@@ -1,3 +1,5 @@
+"use client"
+
 import {
   Link as LinkPrimitive,
   type LinkProps as LinkPrimitiveProps,
@@ -43,5 +45,5 @@ const Link = ({ className, ref, ...props }: LinkProps) => {
   )
 }
 
-export { Link, linkStyles }
 export type { LinkProps }
+export { Link, linkStyles }

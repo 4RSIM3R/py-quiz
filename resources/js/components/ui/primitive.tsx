@@ -1,3 +1,5 @@
+"use client"
+
 import { composeRenderProps } from "react-aria-components"
 import { twMerge } from "tailwind-merge"
 import { tv } from "tailwind-variants"
@@ -11,8 +13,8 @@ function composeTailwindRenderProps<T>(
 
 const focusRing = tv({
   variants: {
-    isFocused: { true: "outline-hidden ring-4 ring-ring/20 data-invalid:ring-danger/20" },
-    isFocusVisible: { true: "outline-hidden ring-4 ring-ring/20" },
+    isFocused: { true: "ring-4 ring-ring/20 outline-hidden" },
+    isFocusVisible: { true: "ring-4 ring-ring/20 outline-hidden" },
     isInvalid: { true: "ring-4 ring-danger/20" },
   },
 })
@@ -26,7 +28,7 @@ const focusStyles = tv({
 })
 
 const focusButtonStyles = tv({
-  base: "outline outline-ring outline-offset-2 forced-colors:outline-[Highlight]",
+  base: "outline outline-ring forced-colors:outline-[Highlight] outline-offset-2",
   variants: {
     isFocusVisible: {
       false: "outline-0",
@@ -35,4 +37,4 @@ const focusButtonStyles = tv({
   },
 })
 
-export { composeTailwindRenderProps, focusButtonStyles, focusRing, focusStyles }
+export { composeTailwindRenderProps, focusRing, focusStyles, focusButtonStyles }

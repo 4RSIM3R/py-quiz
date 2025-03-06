@@ -1,3 +1,5 @@
+"use client"
+
 import { createContext, use, useCallback, useEffect, useMemo, useState } from "react"
 
 import { cn } from "@/utils/classes"
@@ -656,7 +658,7 @@ const SidebarTrigger = ({ onPress, children, ...props }: React.ComponentProps<ty
     <Button
       aria-label={props["aria-label"] || "Toggle Sidebar"}
       data-sidebar-trigger="true"
-      appearance={props.appearance || "plain"}
+      intent={props.intent || "plain"}
       size={props.size || "square-petite"}
       onPress={(event) => {
         onPress?.(event)

@@ -16,23 +16,16 @@ import {
   SidebarNav,
   SidebarProvider,
   SidebarTrigger
-} from "@/components/ui";
-import { PagePropsData } from "@/types";
+} from "@/components/ui";import { PagePropsData } from "@/types";
+;
 import { FormResponse } from "@/utils/constant";
 import { Link, useForm, usePage } from "@inertiajs/react";
 import {
   IconBook,
   IconChartAnalytics,
-  IconChecklist,
   IconChevronLgDown,
-  IconListBullets,
   IconLogout,
-  IconMagicStar,
-  IconMoneybag,
-  IconServerStack,
-  IconSettings,
-  IconWhiteboard
-} from "justd-icons";
+  IconServerStack} from "justd-icons";
 import { PropsWithChildren } from "react";
 import { Toaster } from "sonner";
 
@@ -152,7 +145,7 @@ export const AppLayout = (props: PropsWithChildren) => {
         <SidebarNav className="flex justify-between w-full" >
           <span className="flex gap-x-4 items-center justify-between w-full">
             <SidebarTrigger className="-mx-2" />
-            <Button appearance="outline" size="extra-small" >
+            <Button intent="outline" size="extra-small" >
               <IconChartAnalytics />
             </Button>
           </span>

@@ -1,3 +1,5 @@
+"use client"
+
 import { Keyboard as KeyboardPrimitive } from "react-aria-components"
 import { tv } from "tailwind-variants"
 
@@ -33,5 +35,5 @@ const Keyboard = ({ keys, classNames, className, ...props }: KeyboardProps) => {
   )
 }
 
-export { Keyboard }
 export type { KeyboardProps }
+export { Keyboard }

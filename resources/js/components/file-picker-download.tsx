@@ -48,7 +48,7 @@ export const FilePickerDownload: React.FC<FilePickerLayoutProps> = ({
                     accept={accept}
                     isRequired={computedIsRequired}
                     prefix={prefix}
-                    ref={ref}
+                    ref={ref!}
                 />
                 <span className="text-sm text-muted-fg">
                     Selected File: {getFileName()}
@@ -67,7 +67,7 @@ type FileDownloadProps = {
 
 const FileDownload: React.FC<FileDownloadProps> = ({ href }) => (
     <Link className="mt-2" href={href} target="_blank">
-        <Button size="medium" appearance="outline" className="whitespace-nowrap">
+        <Button size="medium" intent="outline" className="whitespace-nowrap">
             <IconDownload />
             Download
         </Button>

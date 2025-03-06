@@ -42,7 +42,7 @@ export default function CourseForm({ payload }: CourseFormProps) {
                     <p className="text-sm text-gray-600">Master Data Course</p>
                 </div>
                 <div className="flex gap-4">
-                    <Button appearance="outline">
+                    <Button intent="outline">
                         <IconCircleQuestionmark />
                     </Button>
                 </div>

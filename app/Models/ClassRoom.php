@@ -11,4 +11,16 @@ class ClassRoom extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function students()
+    {
+        return $this->hasManyThrough(
+            Student::class,
+            ClassHasStudent::class,
+            'class_room_id',
+            'id',
+            'id',
+            'student_id'
+        );
+    }
 }

@@ -3,7 +3,11 @@ import { AppLayout } from "@/layouts/app-layout";
 import { ClassDetailSection } from "./components/detail_section";
 import { ClassStudentSection } from "./components/student_section";
 
-export default function ClassDetail() {
+type ClassDetailProps = {
+    payload: any,
+}
+
+export default function ClassDetail({ payload }: ClassDetailProps) {
 
     return (
         <Tabs>
@@ -12,10 +16,10 @@ export default function ClassDetail() {
                 <Tabs.Tab id="student">Student</Tabs.Tab>
             </Tabs.List>
             <Tabs.Panel id="detail">
-                <ClassDetailSection />
+                <ClassDetailSection payload={payload} />
             </Tabs.Panel>
             <Tabs.Panel id="student">
-                <ClassStudentSection />
+                <ClassStudentSection payload={payload} />
             </Tabs.Panel>
         </Tabs>
     )

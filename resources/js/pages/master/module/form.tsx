@@ -30,7 +30,7 @@ export default function ModuleForm({payload}: ModuleFormProps) {
                     <p className="text-sm text-gray-600">Master Data Module</p>
                 </div>
                 <div className="flex gap-4">
-                    <Button appearance="outline">
+                    <Button intent="outline">
                         <IconCircleQuestionmark />
                     </Button>
                 </div>

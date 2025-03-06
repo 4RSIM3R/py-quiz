@@ -11,7 +11,7 @@ type BaseActionProps = {
 export const BaseAction = ({ url, id, onDelete, setId }: BaseActionProps) => {
     return (
         <Menu>
-            <Button size="extra-small" appearance="outline">Action</Button>
+            <Button size="extra-small" intent="outline">Action</Button>
             <Menu.Content>
                 <Menu.Item className="flex flex-row gap-1" href={`${route(url, id)}`}>
                     <IconEye />

@@ -11,4 +11,14 @@ class ClassHasStudent extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function class()
+    {
+        return $this->belongsTo(ClassRoom::class);
+    }
+
+    public function student()
+    {
+        return $this->belongsTo(Student::class);
+    }
 }

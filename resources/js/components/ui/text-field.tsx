@@ -1,3 +1,5 @@
+"use client"
+
 import { useState } from "react"
 
 import type { TextInputDOMProps } from "@react-types/shared"
@@ -101,5 +103,5 @@ const TextField = ({
   )
 }
 
-export { TextField }
 export type { TextFieldProps }
+export { TextField }

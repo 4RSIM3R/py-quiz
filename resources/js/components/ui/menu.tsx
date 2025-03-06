@@ -1,3 +1,5 @@
+"use client"
+
 import { createContext, use } from "react"
 
 import { IconBulletFill, IconCheck, IconChevronLgRight } from "justd-icons"
@@ -213,5 +215,5 @@ Menu.Label = MenuLabel
 Menu.Trigger = MenuTrigger
 Menu.Submenu = MenuSubMenu
 
+export type { MenuProps, MenuContentProps, MenuTriggerProps, MenuItemProps, MenuSectionProps }
 export { Menu }
-export type { MenuContentProps, MenuItemProps, MenuProps, MenuSectionProps, MenuTriggerProps }

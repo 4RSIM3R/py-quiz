@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react"
 
 import { IconChevronLgDown, IconHamburger } from "justd-icons"
@@ -249,5 +251,5 @@ Table.Column = TableColumn
 Table.Header = TableHeader
 Table.Row = TableRow
 
+export type { TableProps, TableBodyProps, TableCellProps, TableColumnProps, TableRowProps }
 export { Table }
-export type { TableBodyProps, TableCellProps, TableColumnProps, TableProps, TableRowProps }
