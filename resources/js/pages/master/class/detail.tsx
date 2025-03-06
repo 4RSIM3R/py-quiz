@@ -13,9 +13,13 @@ export default function ClassDetail({ payload }: ClassDetailProps) {
         <Tabs>
             <Tabs.List>
                 <Tabs.Tab id="detail">Detail</Tabs.Tab>
+                <Tabs.Tab id="module">Module</Tabs.Tab>
                 <Tabs.Tab id="student">Student</Tabs.Tab>
             </Tabs.List>
             <Tabs.Panel id="detail">
+                <ClassDetailSection payload={payload} />
+            </Tabs.Panel>
+            <Tabs.Panel id="module">
                 <ClassDetailSection payload={payload} />
             </Tabs.Panel>
             <Tabs.Panel id="student">

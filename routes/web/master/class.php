@@ -17,6 +17,8 @@ Route::group(
         Route::get('{id}/module', [ClassRoomController::class, 'fetchModule'])->name('fetchModule');
         Route::get('{id}', [ClassRoomController::class, 'show'])->name('show');
         Route::post('store', [ClassRoomController::class, 'store'])->name('store');
+        Route::put('{id}/student', [ClassRoomController::class, 'storeStudent'])->name('storeStudent');
+        Route::put('{id}/module', [ClassRoomController::class, 'storeModule'])->name('storeModule');
         Route::put('{id}', [ClassRoomController::class, 'update'])->name('update');
         Route::delete('{id}', [ClassRoomController::class, 'destroy'])->name('destroy');
     }

@@ -18,8 +18,6 @@ return new class extends Migration
             $table->string('module_name');
             $table->string('name');
             $table->string('desc');
-            $table->string('code');
-            $table->string('test');
             $table->baseFields();
         });
     }

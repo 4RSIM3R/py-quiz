@@ -76,7 +76,7 @@ export const AppLayout = (props: PropsWithChildren) => {
   const sections = [master_data];
 
   return (
-    <SidebarProvider>
+    <SidebarProvider className="bg-white" >
       <Sidebar intent="default" collapsible="dock" className="bg-white" >
         <SidebarHeader>
           <Link
@@ -112,7 +112,6 @@ export const AppLayout = (props: PropsWithChildren) => {
             </SidebarDisclosureGroup>
           ))}
         </SidebarContent>
-
         <SidebarFooter>
           <Menu>
             <Menu.Trigger aria-label="Profile" data-slot="menu-trigger">
@@ -141,7 +140,7 @@ export const AppLayout = (props: PropsWithChildren) => {
           </Menu>
         </SidebarFooter>
       </Sidebar>
-      <SidebarInset className="overflow-hidden" >
+      <SidebarInset className="overflow-hidden bg-white" >
         <SidebarNav className="flex justify-between w-full" >
           <span className="flex gap-x-4 items-center justify-between w-full">
             <SidebarTrigger className="-mx-2" />
