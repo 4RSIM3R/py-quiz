@@ -41,7 +41,7 @@ export default function ModuleForm({payload}: ModuleFormProps) {
                     label="Name"
                     name="name"
                     value={data.name || ""}
-                    autoComplete="off"
+                    autoComplete="one-time-code"
                     onChange={(v) => setData("name", v)}
                     errorMessage={errors?.name}
                     isRequired
@@ -51,7 +51,7 @@ export default function ModuleForm({payload}: ModuleFormProps) {
                     label="Description"
                     name="desc"
                     value={data.desc || ""}
-                    autoComplete="off"
+                    autoComplete="one-time-code"
                     onChange={(v) => setData("desc", v)}
                     errorMessage={errors?.desc}
                 />

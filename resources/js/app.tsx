@@ -29,5 +29,7 @@ createInertiaApp({
 
     createRoot(el).render(appElement)
   },
-  progress: false,
+  progress: {
+    showSpinner: true,
+  },
 })

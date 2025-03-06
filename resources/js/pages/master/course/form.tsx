@@ -66,7 +66,7 @@ export default function CourseForm({ payload }: CourseFormProps) {
                     label="Name"
                     name="name"
                     value={data.name || ""}
-                    autoComplete="off"
+                    autoComplete="one-time-code"
                     onChange={(v) => setData("name", v)}
                     errorMessage={errors?.name}
                     isRequired
@@ -76,7 +76,7 @@ export default function CourseForm({ payload }: CourseFormProps) {
                     label="Description"
                     name="desc"
                     value={data.desc || ""}
-                    autoComplete="off"
+                    autoComplete="one-time-code"
                     onChange={(v) => setData("desc", v)}
                     errorMessage={errors?.desc}
                 />
@@ -94,7 +94,7 @@ export default function CourseForm({ payload }: CourseFormProps) {
                     label="Code"
                     name="code"
                     value={data.code || ""}
-                    autoComplete="off"
+                    autoComplete="one-time-code"
                     onChange={(v) => setData("code", v)}
                     errorMessage={errors?.code}
                 />
@@ -103,7 +103,7 @@ export default function CourseForm({ payload }: CourseFormProps) {
                     label="Test"
                     name="test"
                     value={data.test || ""}
-                    autoComplete="off"
+                    autoComplete="one-time-code"
                     onChange={(v) => setData("test", v)}
                     errorMessage={errors?.test}
                 />

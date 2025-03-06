@@ -41,7 +41,7 @@ export default function ClassForm({ payload }: ClassFormProps) {
                     label="Name"
                     name="name"
                     value={data.name || ""}
-                    autoComplete="off"
+                    autoComplete="one-time-code"
                     onChange={(v) => setData("name", v)}
                     errorMessage={errors?.name}
                     isRequired
@@ -51,7 +51,7 @@ export default function ClassForm({ payload }: ClassFormProps) {
                     label="Grade"
                     name="grade"
                     value={data.grade || ""}
-                    autoComplete="off"
+                    autoComplete="one-time-code"
                     onChange={(v) => setData("grade", v)}
                     errorMessage={errors?.grade}
                 />

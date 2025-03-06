@@ -24,6 +24,8 @@ class TeacherRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'nip' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'unique:teachers,email'],
+            'password' => ['required', 'string', 'confirmed'],
         ];
     }
 }

@@ -25,6 +25,7 @@ class StudentRequest extends FormRequest
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
             'nis' => ['required', 'string', 'max:255'],
+            'password' => ['required', 'string', 'confirmed'],
         ];
     }
 }
