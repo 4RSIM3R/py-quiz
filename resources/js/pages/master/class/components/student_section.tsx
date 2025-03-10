@@ -54,7 +54,7 @@ export const ClassStudentSection = ({ payload }: ClassStudentSectionProps) => {
 
     const fetchData = async (params: Record<string, any>) => {
         const response = await axios.get<Base<any[]>>(
-            route('backoffice.master.class.fetchStudent', payload.id),
+            route('backoffice.master.class.student', payload.id),
             {
                 params: {
                     'filter[class_room_id]': payload.id,

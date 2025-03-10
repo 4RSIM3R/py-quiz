@@ -44,7 +44,7 @@ class ModuleController extends Controller
     public function show($id)
     {
         $data = $this->service->find($id);
-        return Inertia::render('master/module/form', ["payload" => $data]);
+        return Inertia::render('master/module/detail', ["payload" => $data]);
     }
 
     public function update(ModuleRequest $request, $id)

@@ -75,7 +75,7 @@ class ClassRoomService extends BaseService implements ClassRoomContract
     public function getModule($filters, $sorts, bool|null $paginate = null, array $relation = [])
     {
         try {
-            $model = QueryBuilder::for(ClassHasStudent::class)
+            $model = QueryBuilder::for(ClassHasModule::class)
                 ->allowedFilters($filters)
                 ->allowedSorts($sorts)
                 ->with(empty($relation) ? $this->relation : $relation)

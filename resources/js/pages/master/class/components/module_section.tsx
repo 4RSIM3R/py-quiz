@@ -29,8 +29,12 @@ export const ClassModuleSection = ({ payload }: ClassModuleSectionProps) => {
         {
             id: 'name',
             header: 'Name',
-            cell: (item) => item?.student?.name ?? '-',
-            sortable: false,
+            cell: (item) => item?.module?.name ?? '-',
+        },
+        {
+            id: 'desc',
+            header: 'Description',
+            cell: (item) => item?.module?.desc ?? '-',
         },
     ];
 
@@ -57,24 +61,20 @@ export const ClassModuleSection = ({ payload }: ClassModuleSectionProps) => {
         <>
             <div className="flex flex-row justify-between">
                 <div>
-                    <h1 className="text-xl font-semibold">Student Section</h1>
-                    <p className="text-sm text-gray-600">Master Data Student Section</p>
+                    <h1 className="text-xl font-semibold">Module Section</h1>
+                    <p className="text-sm text-gray-600">Master Data Module Section</p>
                 </div>
                 <div className="flex flex-row gap-4" >
-                    <Button intent="outline" >
-                        <IconUpload />
-                        Import Student
-                    </Button>
                     <Modal>
                         <Button intent="outline" >
                             <IconPlus />
-                            Add Student
+                            Add Module
                         </Button>
                         <Modal.Content>
                             <Modal.Header>
-                                <Modal.Title>Add Student</Modal.Title>
+                                <Modal.Title>Add Module</Modal.Title>
                                 <Modal.Description>
-                                    You can add student by selecting the student first
+                                    You can add student by selecting the module first
                                 </Modal.Description>
                             </Modal.Header>
                             <Modal.Footer>
