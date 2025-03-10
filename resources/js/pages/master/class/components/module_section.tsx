@@ -1,19 +1,19 @@
-import { CustomSelect } from "@/components/custom-select"
-import { Column, DataTable } from "@/components/data-table"
-import { Button, Modal } from "@/components/ui"
-import { Base } from "@/types/base"
-import { FormResponse } from "@/utils/constant"
-import { fetchStudent } from "@/utils/fetch"
-import { useForm } from "@inertiajs/react"
-import axios from "axios"
-import { IconFloppyDisk, IconPlus, IconUpload } from "justd-icons"
-import { useState } from "react"
+import { CustomSelect } from "@/components/custom-select";
+import { Column, DataTable } from "@/components/data-table";
+import { Button, Modal } from "@/components/ui";
+import { Base } from "@/types/base";
+import { FormResponse } from "@/utils/constant";
+import { fetchModule } from "@/utils/fetch";
+import { useForm } from "@inertiajs/react";
+import axios from "axios";
+import { IconFloppyDisk, IconPlus, IconUpload } from "justd-icons";
+import { useState } from "react";
 
-type ClassStudentSectionProps = {
+type ClassModuleSectionProps = {
     payload: any,
 }
 
-export const ClassStudentSection = ({ payload }: ClassStudentSectionProps) => {
+export const ClassModuleSection = ({ payload }: ClassModuleSectionProps) => {
 
     const [filters, setFilters] = useState({ class_room_id: payload.id });
     const { data, setData, put, processing } = useForm();
@@ -32,29 +32,17 @@ export const ClassStudentSection = ({ payload }: ClassStudentSectionProps) => {
             cell: (item) => item?.student?.name ?? '-',
             sortable: false,
         },
-        {
-            id: 'nis',
-            header: 'NIS',
-            cell: (item) => item?.student?.nis ?? '-',
-            sortable: false,
-        },
-        {
-            id: 'email',
-            header: 'Email',
-            cell: (item) => item?.student?.email ?? '-',
-            sortable: false,
-        },
     ];
 
     const onSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         data['class_room_id'] = payload.id;
-        put(route('backoffice.master.class.student', payload.id), FormResponse);
+        put(route('backoffice.master.class.module', payload.id), FormResponse);
     };
 
     const fetchData = async (params: Record<string, any>) => {
         const response = await axios.get<Base<any[]>>(
-            route('backoffice.master.class.fetchStudent', payload.id),
+            route('backoffice.master.class.module', payload.id),
             {
                 params: {
                     'filter[class_room_id]': payload.id,
@@ -93,14 +81,14 @@ export const ClassStudentSection = ({ payload }: ClassStudentSectionProps) => {
                                 <form onSubmit={onSubmit} className="w-full grid grid-cols-12 gap-4" >
                                     <div className="col-span-12" >
                                         <CustomSelect
-                                            label="Student"
-                                            name="student"
-                                            placeholder="Select Student"
+                                            label="Module"
+                                            name="module"
+                                            placeholder="Select Module"
                                             defaultValue={null}
                                             onChange={(value) => {
-                                                setData("student_id", value?.value);
+                                                setData("module_id", value?.value);
                                             }}
-                                            loadOptions={fetchStudent}
+                                            loadOptions={fetchModule}
                                             isRequired
                                         />
                                     </div>

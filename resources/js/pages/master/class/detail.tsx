@@ -2,6 +2,7 @@ import { Tabs } from "@/components/ui";
 import { AppLayout } from "@/layouts/app-layout";
 import { ClassDetailSection } from "./components/detail_section";
 import { ClassStudentSection } from "./components/student_section";
+import { ClassModuleSection } from "./components/module_section";
 
 type ClassDetailProps = {
     payload: any,
@@ -20,7 +21,7 @@ export default function ClassDetail({ payload }: ClassDetailProps) {
                 <ClassDetailSection payload={payload} />
             </Tabs.Panel>
             <Tabs.Panel id="module">
-                <ClassDetailSection payload={payload} />
+                <ClassModuleSection payload={payload} />
             </Tabs.Panel>
             <Tabs.Panel id="student">
                 <ClassStudentSection payload={payload} />

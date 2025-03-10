@@ -7,7 +7,7 @@ import { Base } from "@/types/base";
 import { FormResponse } from "@/utils/constant";
 import { Link, useForm } from "@inertiajs/react";
 import axios from "axios";
-import { IconPlus, IconSearch } from "justd-icons";
+import { IconFilter, IconPlus, IconSearch, IconUpload } from "justd-icons";
 import { useState } from "react";
 
 export default function TeacherIndex() {
@@ -64,17 +64,14 @@ export default function TeacherIndex() {
                     <h1 className="text-xl font-semibold" >Teacher</h1>
                     <p className="text-sm text-gray-600" >Master Data Teacher</p>
                 </div>
-                <div className="flex gap-4" >
-                    <TextField
-                        prefix={
-                            <IconSearch />
-                        }
-                        placeholder="Search..."
-                        value={filters.name}
-                        onChange={(val) => {
-                            setFilters({ ...filters, name: val });
-                        }}
-                    />
+                <div className="flex gap-2.5" >
+                    <Button intent="outline" >
+                        <IconFilter />
+                    </Button>
+                    <Button intent="outline" >
+                        <IconUpload />
+                        Import Data
+                    </Button>
                     <Link href={route('backoffice.master.teacher.create')} >
                         <Button>
                             <IconPlus />

@@ -111,7 +111,7 @@ export const DataTable = <T extends Record<string, any>>({
                                     {column.header}
                                     {column.sortable && (
                                         <Button
-                                            appearance="plain"
+                                            intent="plain"
                                             size="small"
                                             className="h-8 w-8 p-0"
                                             onPress={() => handleSort(column.id)}
@@ -139,7 +139,7 @@ export const DataTable = <T extends Record<string, any>>({
                         {(item) => (
                             <Table.Row key={item.id}>
                                 {columns.map(column => (
-                                    <Table.Cell key={column.id}>
+                                    <Table.Cell className="bg-white" key={column.id}>
                                         {column.cell(item)}
                                     </Table.Cell>
                                 ))}

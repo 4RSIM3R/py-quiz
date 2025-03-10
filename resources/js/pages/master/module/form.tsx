@@ -40,7 +40,7 @@ export default function ModuleForm({payload}: ModuleFormProps) {
                     className="col-span-12"
                     label="Name"
                     name="name"
-                    value={data.name || ""}
+                    value={data.name}
                     autoComplete="one-time-code"
                     onChange={(v) => setData("name", v)}
                     errorMessage={errors?.name}
@@ -50,7 +50,7 @@ export default function ModuleForm({payload}: ModuleFormProps) {
                     className="col-span-12"
                     label="Description"
                     name="desc"
-                    value={data.desc || ""}
+                    value={data.desc}
                     autoComplete="one-time-code"
                     onChange={(v) => setData("desc", v)}
                     errorMessage={errors?.desc}

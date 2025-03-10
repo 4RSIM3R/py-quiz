@@ -16,7 +16,7 @@ import {
   SidebarNav,
   SidebarProvider,
   SidebarTrigger
-} from "@/components/ui";import { PagePropsData } from "@/types";
+} from "@/components/ui"; import { PagePropsData } from "@/types";
 ;
 import { FormResponse } from "@/utils/constant";
 import { Link, useForm, usePage } from "@inertiajs/react";
@@ -25,7 +25,9 @@ import {
   IconChartAnalytics,
   IconChevronLgDown,
   IconLogout,
-  IconServerStack} from "justd-icons";
+  IconServerStack,
+  IconSettings
+} from "justd-icons";
 import { PropsWithChildren } from "react";
 import { Toaster } from "sonner";
 
@@ -33,47 +35,82 @@ export const AppLayout = (props: PropsWithChildren) => {
 
   const { post } = useForm<any>();
 
-  const page = usePage<PagePropsData>().props;
+  const { user } = usePage<PagePropsData>().props.auth;
 
   const onLogout = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     post(route('auth.logout'), FormResponse);
   };
 
-  const master_data: any =
-  {
-    icon: IconBook,
-    label: "Master Data",
-    items: [
-      {
-        label: "Class",
-        icon: IconBook,
-        href: route('backoffice.master.class.index')
-      },
-      {
-        label: "Course",
-        icon: IconBook,
-        href: route('backoffice.master.course.index')
-      },
-      {
-        label: "Module",
-        icon: IconBook,
-        href: route('backoffice.master.module.index')
-      },
-      {
-        label: "Student",
-        icon: IconBook,
-        href: route('backoffice.master.student.index')
-      },
-      {
-        label: "Teacher",
-        icon: IconBook,
-        href: route('backoffice.master.teacher.index')
-      },
-    ]
-  }
+  const admin: any = [
+    {
+      icon: IconBook,
+      label: "Master Data",
+      items: [
+        {
+          label: "Class",
+          icon: IconBook,
+          href: route('backoffice.master.class.index')
+        },
+        {
+          label: "Course",
+          icon: IconBook,
+          href: route('backoffice.master.course.index')
+        },
+        {
+          label: "Module",
+          icon: IconBook,
+          href: route('backoffice.master.module.index')
+        },
+        {
+          label: "Student",
+          icon: IconBook,
+          href: route('backoffice.master.student.index')
+        },
+        {
+          label: "Teacher",
+          icon: IconBook,
+          href: route('backoffice.master.teacher.index')
+        },
+      ]
+    },
+    {
+      icon: IconSettings,
+      label: "Setting",
+      items: [
+        {
+          label: "Level",
+          icon: IconSettings,
+          href: route('backoffice.master.teacher.index')
+        },
+      ],
+    }
+  ];
 
-  const sections = [master_data];
+  const student = [
+    {
+      icon: IconBook,
+      label: "Master",
+      items: [
+        {
+          label: "Course",
+          icon: IconBook,
+          href: route('backoffice.master.course.index')
+        },
+        {
+          label: "Module",
+          icon: IconBook,
+          href: route('backoffice.master.module.index')
+        },
+      ],
+    }
+  ];
+
+  const mapRoleToMenu: Record<string, any> = {
+    'admin': admin,
+    'student': student,
+    'teacher': admin,
+  };
 
   return (
     <SidebarProvider className="bg-white" >
@@ -87,9 +124,8 @@ export const AppLayout = (props: PropsWithChildren) => {
             <SidebarLabel className="font-medium">Console</SidebarLabel>
           </Link>
         </SidebarHeader>
-
         <SidebarContent>
-          {sections.map((section, index) => (
+          {mapRoleToMenu[user.roles[0].name].map((section: any, index: any) => (
             <SidebarDisclosureGroup key={index}>
               <SidebarDisclosure id={index + 1}>
                 <SidebarDisclosureTrigger>
@@ -117,15 +153,15 @@ export const AppLayout = (props: PropsWithChildren) => {
             <Menu.Trigger aria-label="Profile" data-slot="menu-trigger">
               <Avatar shape="square" src="" />
               <div className="text-sm group-data-[collapsible=dock]:hidden">
-                {page.auth?.user?.name ?? '-'}
-                <span className="block -mt-0.5 text-muted-fg">{page.auth?.user?.email ?? '-'}</span>
+                {user?.name ?? '-'}
+                <span className="block -mt-0.5 text-muted-fg">{user?.email ?? '-'}</span>
               </div>
               <IconChevronLgDown className="absolute right-3 transition-transform size-4 group-pressed:rotate-180" />
             </Menu.Trigger>
             <Menu.Content placement="bottom right" className="sm:min-w-(--trigger-width)">
               <Menu.Section>
                 <Menu.Header separator>
-                  <span className="block">{page.auth?.user?.name ?? '-'}</span>
+                  <span className="block">{user?.name ?? '-'}</span>
                   <span className="font-normal text-muted-fg">@cobain</span>
                 </Menu.Header>
               </Menu.Section>

@@ -1,6 +1,6 @@
 export type AuthData = {
     role?: string,
-    user: AuthenticatedUserData;
+    user: any;
 };
 
 export type AuthenticatedUserData = {

@@ -7,7 +7,7 @@ import { Base } from "@/types/base";
 import { FormResponse } from "@/utils/constant";
 import { Link, useForm } from "@inertiajs/react";
 import axios from "axios";
-import { IconPlus } from "justd-icons";
+import { IconFilter, IconPlus, IconUpload } from "justd-icons";
 import { useState } from "react";
 
 export default function StudentIndex() {
@@ -70,7 +70,14 @@ export default function StudentIndex() {
                     <h1 className="text-xl font-semibold" >Student</h1>
                     <p className="text-sm text-gray-600" >Master Data Student</p>
                 </div>
-                <div className="flex gap-4" >
+                <div className="flex gap-2.5" >
+                    <Button intent="outline" >
+                        <IconFilter />
+                    </Button>
+                    <Button intent="outline" >
+                        <IconUpload />
+                        Import Data
+                    </Button>
                     <Link href={route('backoffice.master.student.create')} >
                         <Button>
                             <IconPlus />

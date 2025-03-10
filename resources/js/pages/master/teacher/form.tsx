@@ -40,7 +40,7 @@ export default function TeacherForm({ payload }: TeacherFormProps) {
                     className="col-span-6"
                     label="Name"
                     name="name"
-                    value={data.name || ""}
+                    value={data.name}
                     autoComplete="one-time-code"
                     onChange={(v) => setData("name", v)}
                     errorMessage={errors?.name}
@@ -50,7 +50,7 @@ export default function TeacherForm({ payload }: TeacherFormProps) {
                     className="col-span-6"
                     label="NIP"
                     name="nip"
-                    value={data.nip || ""}
+                    value={data.nip}
                     autoComplete="one-time-code"
                     onChange={(v) => setData("nip", v)}
                     errorMessage={errors?.nip}
