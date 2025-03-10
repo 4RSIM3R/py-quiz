@@ -42,14 +42,6 @@ export default function CourseIndex() {
             sortable: false
         },
         {
-            id: 'file',
-            header: 'File',
-            cell: (item) => (
-                <Button size="extra-small" intent="outline" >Download</Button>
-            ),
-            sortable: false
-        },
-        {
             id: 'actions',
             header: 'Actions',
             cell: (item) => (<BaseAction url="backoffice.master.course.show" id={item.id} setId={setId} onDelete={onDelete} />),

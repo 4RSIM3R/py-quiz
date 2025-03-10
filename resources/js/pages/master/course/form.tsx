@@ -1,12 +1,10 @@
 import { CustomSelect } from "@/components/custom-select";
-import { FilePickerDownload } from "@/components/file-picker-download";
-import { Button, Textarea, TextField } from "@/components/ui";
+import { Button, TextField } from "@/components/ui";
 import { AppLayout } from "@/layouts/app-layout";
 import { FormResponse } from "@/utils/constant";
 import { fetchModule } from "@/utils/fetch";
 import { useForm } from "@inertiajs/react";
-import { IconCircleQuestionmark, IconFile } from "justd-icons";
-import { toast } from "sonner";
+import { IconCircleQuestionmark } from "justd-icons";
 
 type CourseFormProps = {
     payload: any,
@@ -79,33 +77,6 @@ export default function CourseForm({ payload }: CourseFormProps) {
                     autoComplete="one-time-code"
                     onChange={(v) => setData("desc", v)}
                     errorMessage={errors?.desc}
-                />
-                <FilePickerDownload
-                    className="col-span-12"
-                    label="Material"
-                    name="material"
-                    value={payload?.material}
-                    onChange={(files) => handleFileChange("material", files)}
-                    accept=".doc,.docx,.pdf"
-                    prefix={<IconFile />}
-                />
-                <Textarea
-                    className="col-span-12"
-                    label="Code"
-                    name="code"
-                    value={data.code}
-                    autoComplete="one-time-code"
-                    onChange={(v) => setData("code", v)}
-                    errorMessage={errors?.code}
-                />
-                <Textarea
-                    className="col-span-12"
-                    label="Test"
-                    name="test"
-                    value={data.test}
-                    autoComplete="one-time-code"
-                    onChange={(v) => setData("test", v)}
-                    errorMessage={errors?.test}
                 />
                 <div className="col-span-12 my-3">
                     <Button isDisabled={processing} type="submit">

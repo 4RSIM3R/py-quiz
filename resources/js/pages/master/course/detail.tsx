@@ -14,12 +14,11 @@ export default function CourseDetail({ payload }: CourseDetailProps) {
             <Tabs.List>
                 <Tabs.Tab id="detail">Detail</Tabs.Tab>
                 <Tabs.Tab id="question">Question</Tabs.Tab>
-                <Tabs.Tab id="student">Student</Tabs.Tab>
             </Tabs.List>
             <Tabs.Panel id="detail">
                 <CourseDetailSection payload={payload} />
             </Tabs.Panel>
-            <Tabs.Panel id="module">
+            <Tabs.Panel id="question">
                 <CourseQuestionSection payload={payload} />
             </Tabs.Panel>
         </Tabs>

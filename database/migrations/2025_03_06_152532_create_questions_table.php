@@ -15,6 +15,9 @@ return new class extends Migration
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Course::class)->constrained();
+            $table->string('title');
+            $table->text('code');
+            $table->text('test');
             $table->baseFields();
         });
     }

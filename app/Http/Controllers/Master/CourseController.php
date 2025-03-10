@@ -47,7 +47,7 @@ class CourseController extends Controller
     public function show($id)
     {
         $data = $this->service->find($id);
-        return Inertia::render('master/course/form', ["payload" => $data]);
+        return Inertia::render('master/course/detail', ["payload" => $data]);
     }
 
     public function update(CourseRequest $request, $id)
