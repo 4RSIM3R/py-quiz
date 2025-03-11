@@ -17,7 +17,6 @@ import {
   SidebarProvider,
   SidebarTrigger
 } from "@/components/ui"; import { PagePropsData } from "@/types";
-;
 import { FormResponse } from "@/utils/constant";
 import { Link, useForm, usePage } from "@inertiajs/react";
 import {
@@ -71,6 +70,11 @@ export const AppLayout = (props: PropsWithChildren) => {
           label: "Teacher",
           icon: IconBook,
           href: route('backoffice.master.teacher.index')
+        },
+        {
+          label: "Question",
+          icon: IconBook,
+          href: route('backoffice.master.question.index')
         },
       ]
     },

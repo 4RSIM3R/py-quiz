@@ -7,6 +7,7 @@ use App\Contract\BaseContract;
 use App\Contract\Master\ClassRoomContract;
 use App\Contract\Master\CourseContract;
 use App\Contract\Master\ModuleContract;
+use App\Contract\Master\QuestionContract;
 use App\Contract\Master\StudentContract;
 use App\Contract\Master\TeacherContract;
 use App\Service\Master\ClassRoomService;
@@ -16,6 +17,7 @@ use App\Service\Master\StudentService;
 use App\Service\Master\TeacherService;
 use App\Service\AuthService;
 use App\Service\BaseService;
+use App\Service\Master\QuestionService;
 use Illuminate\Support\ServiceProvider;
 
 class ContractServiceProvider extends ServiceProvider
@@ -40,6 +42,7 @@ class ContractServiceProvider extends ServiceProvider
         $this->app->bind(ModuleContract::class, ModuleService::class);
         $this->app->bind(StudentContract::class, StudentService::class);
         $this->app->bind(TeacherContract::class, TeacherService::class);
+        $this->app->bind(QuestionContract::class, QuestionService::class);
     }
 
     /**
