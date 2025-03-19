@@ -7,41 +7,55 @@ import { Base } from "@/types/base";
 import { FormResponse } from "@/utils/constant";
 import { Link, useForm } from "@inertiajs/react";
 import axios from "axios";
-import { IconFilter, IconPlus, IconUpload } from "justd-icons";
+import { IconEye, IconFilter, IconPlus, IconUpload } from "justd-icons";
 import { useState } from "react";
 
 export default function QuestionIndex() {
-
-    const [filters, setFilters] = useState({ name: '' });
+    const [filters, setFilters] = useState({ name: "" });
     const [id, setId] = useState<any>();
     const { delete: destroy } = useForm();
 
     const onDelete = (e: { preventDefault: () => void }) => {
         e.preventDefault();
-        destroy(route('backoffice.master.question.destroy', id), FormResponse);
+        destroy(route("backoffice.master.question.destroy", id), FormResponse);
     };
 
     const columns: Column<any>[] = [
         {
-            id: 'id',
-            header: 'ID',
+            id: "id",
+            header: "ID",
             cell: (item) => item.id,
             sortable: false,
             isRowHeader: true,
         },
         {
-            id: 'name',
-            header: 'Name',
+            id: "name",
+            header: "Name",
             cell: (item) => item.name,
         },
         {
-            id: 'nip',
-            header: 'NIP',
-            cell: (item) => item.nip,
+            id: "code",
+            header: "Code",
+            cell: (item) => (
+                <Button intent="outline" size="extra-small">
+                    <IconEye />
+                    Show Code
+                </Button>
+            ),
         },
         {
-            id: 'actions',
-            header: 'Actions',
+            id: "test",
+            header: "Test",
+            cell: (item) => (
+                <Button intent="outline" size="extra-small">
+                    <IconEye />
+                    Show Unit Test
+                </Button>
+            ),
+        },
+        {
+            id: "actions",
+            header: "Actions",
             cell: (item) => (
                 <BaseAction
                     url="backoffice.master.question.show"
@@ -50,13 +64,13 @@ export default function QuestionIndex() {
                     onDelete={onDelete}
                 />
             ),
-            sortable: false
-        }
+            sortable: false,
+        },
     ];
 
     const fetchData = async (params: Record<string, any>) => {
         const response = await axios.get<Base<any[]>>(
-            route('backoffice.master.question.fetch', params)
+            route("backoffice.master.question.fetch", params)
         );
         return response.data;
     };
@@ -64,20 +78,22 @@ export default function QuestionIndex() {
     return (
         <>
             <DeleteDialog id={id} onDelete={onDelete} onOpenChange={setId} />
-            <div className="flex justify-between" >
+            <div className="flex justify-between">
                 <div>
-                    <h1 className="text-xl font-semibold" >question</h1>
-                    <p className="text-sm text-gray-600" >Master Data question</p>
+                    <h1 className="text-xl font-semibold">question</h1>
+                    <p className="text-sm text-gray-600">
+                        Master Data question
+                    </p>
                 </div>
-                <div className="flex gap-2.5" >
-                    <Button intent="outline" >
+                <div className="flex gap-2.5">
+                    <Button intent="outline">
                         <IconFilter />
                     </Button>
-                    <Button intent="outline" >
+                    <Button intent="outline">
                         <IconUpload />
                         Import Data
                     </Button>
-                    <Link href={route('backoffice.master.question.create')} >
+                    <Link href={route("backoffice.master.question.create")}>
                         <Button>
                             <IconPlus />
                             Add Data
@@ -85,7 +101,7 @@ export default function QuestionIndex() {
                     </Link>
                 </div>
             </div>
-            <div className="my-4 flex flex-col gap-2" >
+            <div className="my-4 flex flex-col gap-2">
                 <DataTable
                     columns={columns}
                     fetchData={fetchData}
@@ -93,8 +109,7 @@ export default function QuestionIndex() {
                 />
             </div>
         </>
-    )
-
+    );
 }
 
 QuestionIndex.layout = (page: React.ReactNode) => <AppLayout children={page} />;
